@@ -1,10 +1,16 @@
-import Home from "./components/Home"
+import Header from "./components/header/Header.jsx"
+import Home from "./components/Home/Home.jsx"
 
 
 function App() {
   return (
     <>
-      <Home />
+    	<div className="bg-white">
+			<Header />
+
+			<Home />
+		</div>
+      
     </>
   )
 }
