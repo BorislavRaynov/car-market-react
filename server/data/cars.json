@@ -1,0 +1,30 @@
+{
+    "ca0ebd59-ce19-4336-8848-f042996a8221": {
+        "make": "Mercedes Benz",
+        "model": "C Klass",
+        "mileage": "96000",
+        "fueltype": "diesel",
+        "imgURLS": [
+            "https://cdn.motor1.com/images/mgl/yErxb/s1/mercedes-c-klasse-limousine-2021.jpg",
+            "https://cdn.motor1.com/images/mgl/x7qNq/s3/neue-mercedes-c-klasse-w-206-bildquelle-motor1-deutschland.jpg",
+            "https://assets.autoweek.nl/m/0f4y4s5bzreg_800.jpg",
+            "https://images.ctfassets.net/uaddx06iwzdz/qDYfOZugn1pQ0mmDm2yoj/2d96188eeaf9fd53ccd2b2a003b945c2/mercedes-benz-c-klasse-back.jpeg"
+        ],
+        "details": "This car is amazing and the mileage is real.",
+        "_id": "ca0ebd59-ce19-4336-8848-f042996a8221"
+    },
+    "338b6589-39e4-47dc-a618-6b588d2e6d7f": {
+        "make": "BMW",
+        "model": "M5",
+        "mileage": "112000",
+        "fueltype": "petrol",
+        "imgURLS": [
+            "https://www.bmw-m.com/content/dam/bmw/marketBMW_M/www_bmw-m_com/all-models/m-automobile/m5-limousine/2024/bmw-m5-sedan-hd-01-2.jpg",
+            "https://maxtondesign.com/eng_pl_Rear-Splitter-BMW-M5-F90-8030_4.jpg",
+            "https://seversbreeman.nl/app/uploads/2022/05/m5-mob.jpg",
+            "https://i.ytimg.com/vi/iZt7Fwu91FI/sddefault.jpg"
+        ],
+        "details": "This car is unreal beast.",
+        "_id": "338b6589-39e4-47dc-a618-6b588d2e6d7f"
+    }
+}
