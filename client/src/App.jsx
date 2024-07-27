@@ -13,26 +13,25 @@ import Favorites from './components/favorites/Favorites.jsx'
 
 
 function App() {
-  return (
-    <>
-    	<div className="bg-white">
-			<Header />
+	return (
+		<>
+			<div className="bg-white">
+				<Header />
 
-			<Routes>
-				<Route path='/' element={<Home />} />
-				<Route path='/login' element={<Login />} />
-				<Route path='/logout' element={<Logout />} />
-				<Route path='/register' element={<Register />} />
-				<Route path='/cars' element={<CarList />} />
-				<Route path='/cars/create' element={<CarAdCreate />} />
-				<Route path='/favorites' element={<Favorites />} />
-				<Route path='/about' element={<About />} />
-				<Route path='/details' element={<CarDetails />} />
-			</Routes>
-		</div>
-      
-    </>
-  )
+				<Routes>
+					<Route path='/' element={<Home />} />
+					<Route path='/login' element={<Login />} />
+					<Route path='/logout' element={<Logout />} />
+					<Route path='/register' element={<Register />} />
+					<Route path='/cars' element={<CarList />} />
+					<Route path='/cars/create' element={<CarAdCreate />} />
+					<Route path='/favorites' element={<Favorites />} />
+					<Route path='/about' element={<About />} />
+					<Route path='/details' element={<CarDetails />} />
+				</Routes>
+			</div>
+		</>
+	)
 }
 
 export default App
