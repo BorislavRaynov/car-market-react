@@ -15,6 +15,7 @@ export default function CarList() {
 			const result = await response.json();
 			const cars = Object.values(result)
 			setCars(cars)
+			// console.log(cars)
 		})();
 	}, []);
 

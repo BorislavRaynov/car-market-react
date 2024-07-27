@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 
-const initialValues = {
+const initialCarFormValues = {
 	make: '',
 	model: '',
 	mileage: '',
@@ -15,26 +15,26 @@ const initialValues = {
 }
 
 export default function CarAdCreate() {
-	const [carData, setCarData] = useState(initialValues)
+	const [carFormValues, setCarFormValues] = useState(initialCarFormValues)
 
-	const formSubmitHandler = (e) => {
+	const formCarSubmitHandler = (e) => {
 		e.preventDefault();
 		console.log('Form Submitted!!!');
 	}
 
 	const changeHandler = (e) => {
-		setCarData(carData => ({...carData, [e.target.name]: e.target.value}))
+		setCarFormValues(carFormValues => ({...carFormValues, [e.target.name]: e.target.value}))
 	}
 
-	const inputRef = useRef();
+		const inputRef = useRef();
 
-	useEffect(() => {
-		inputRef.current.focus()
-	},[])
+		useEffect(() => {
+			inputRef.current.focus()
+		},[])
 
 	return (
 		<div className='mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-4xl lg:px-8'>
-			<form onSubmit={formSubmitHandler}>
+			<form onSubmit={formCarSubmitHandler}>
 				<div className="space-y-12">
 					<div className="border-b border-gray-900/10 pb-12">
 						<h2 className="text-base font-semibold leading-7 text-gray-900">Enter vehicle details</h2>
@@ -53,7 +53,7 @@ export default function CarAdCreate() {
 											type="text"
 											ref={inputRef}
 											placeholder="Mercedes"
-											value={carData.make}
+											value={carFormValues.make}
 											onChange={changeHandler}
 										/>
 									</div>
@@ -72,7 +72,7 @@ export default function CarAdCreate() {
 											name="model"
 											type="text"
 											placeholder="G500 AMG"
-											value={carData.model}
+											value={carFormValues.model}
 											onChange={changeHandler}
 										/>
 									</div>
@@ -91,7 +91,7 @@ export default function CarAdCreate() {
 											name="mileage"
 											type="text"
 											placeholder="150000"
-											value={carData.mileage}
+											value={carFormValues.mileage}
 											onChange={changeHandler}
 										/>
 									</div>
@@ -110,7 +110,7 @@ export default function CarAdCreate() {
 											name="fuel"
 											type="text"
 											placeholder="Petrol"
-											value={carData.fuel}
+											value={carFormValues.fuel}
 											onChange={changeHandler}
 										/>
 									</div>
@@ -132,7 +132,7 @@ export default function CarAdCreate() {
 											id="img1"
 											name="img1"
 											type="text"
-											value={carData.img1}
+											value={carFormValues.img1}
 											onChange={changeHandler}
 										/>
 									</div>
@@ -150,7 +150,7 @@ export default function CarAdCreate() {
 											id="img2"
 											name="img2"
 											type="text"
-											value={carData.img2}
+											value={carFormValues.img2}
 											onChange={changeHandler}
 										/>
 									</div>
@@ -168,7 +168,7 @@ export default function CarAdCreate() {
 											id="img3"
 											name="img3"
 											type="text"
-											value={carData.img3}
+											value={carFormValues.img3}
 											onChange={changeHandler}
 										/>
 									</div>
@@ -186,7 +186,7 @@ export default function CarAdCreate() {
 											id="img4"
 											name="img4"
 											type="text"
-											value={carData.img4}
+											value={carFormValues.img4}
 											onChange={changeHandler}
 										/>
 									</div>
@@ -205,7 +205,7 @@ export default function CarAdCreate() {
 									id="info"
 									name="info"
 									rows={3}
-									value={carData.info}
+									value={carFormValues.info}
 									onChange={changeHandler}
 								/>
 							</div>
@@ -220,7 +220,7 @@ export default function CarAdCreate() {
 					<button
 						className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
 						type="submit"
-						onClick={formSubmitHandler}
+						onClick={formCarSubmitHandler}
 					>
 						Save
 					</button>
