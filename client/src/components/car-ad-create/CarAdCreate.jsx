@@ -6,7 +6,11 @@ const initialCarFormValues = {
 	make: '',
 	model: '',
 	mileage: '',
-	fuel: '',
+	color: '',
+	fueltype: '',
+	price: '',
+	sellname: '',
+	sellphone: '',
 	img1: '',
 	img2: '',
 	img3: '',
@@ -23,14 +27,14 @@ export default function CarAdCreate() {
 	}
 
 	const changeHandler = (e) => {
-		setCarFormValues(carFormValues => ({...carFormValues, [e.target.name]: e.target.value}))
+		setCarFormValues(carFormValues => ({ ...carFormValues, [e.target.name]: e.target.value }))
 	}
 
-		const inputRef = useRef();
+	const inputRef = useRef();
 
-		useEffect(() => {
-			inputRef.current.focus()
-		},[])
+	useEffect(() => {
+		inputRef.current.focus()
+	}, [])
 
 	return (
 		<div className='mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-4xl lg:px-8'>
@@ -90,7 +94,7 @@ export default function CarAdCreate() {
 											id="mileage"
 											name="mileage"
 											type="text"
-											placeholder="150000"
+											placeholder="150000 km"
 											value={carFormValues.mileage}
 											onChange={changeHandler}
 										/>
@@ -99,18 +103,97 @@ export default function CarAdCreate() {
 							</div>
 
 							<div className="sm:col-span-4">
-								<label htmlFor="Fuel" className="block text-sm font-medium leading-6 text-gray-900">
+								<label htmlFor="color" className="block text-sm font-medium leading-6 text-gray-900">
+									Color
+								</label>
+								<div className="mt-2">
+									<div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+										<input
+											className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+											id="color"
+											name="color"
+											type="text"
+											placeholder="Silver"
+											value={carFormValues.fuel}
+											onChange={changeHandler}
+										/>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div className="mt-10 flex gap-x-6 gap-y-8 sm:grid-cols-6">
+
+							<div className="sm:col-span-4">
+								<label htmlFor="fueltype" className="block text-sm font-medium leading-6 text-gray-900">
 									Fuel Type
 								</label>
 								<div className="mt-2">
 									<div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
 										<input
 											className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-											id="fuel"
-											name="fuel"
+											id="fueltype"
+											name="fueltype"
 											type="text"
 											placeholder="Petrol"
 											value={carFormValues.fuel}
+											onChange={changeHandler}
+										/>
+									</div>
+								</div>
+							</div>
+
+							<div className="sm:col-span-4">
+								<label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900">
+									Price
+								</label>
+								<div className="mt-2">
+									<div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+										<input
+											className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+											id="price"
+											name="peice"
+											type="text"
+											placeholder="50000$"
+											value={carFormValues.price}
+											onChange={changeHandler}
+										/>
+									</div>
+								</div>
+							</div>
+
+							<div className="sm:col-span-4">
+								<label htmlFor="sellname" className="block text-sm font-medium leading-6 text-gray-900">
+									Seller's Name
+								</label>
+								<div className="mt-2">
+									<div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+										<input
+											className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+											id="sellname"
+											name="sellname"
+											type="text"
+											placeholder="Ivan Ivanov"
+											value={carFormValues.sellname}
+											onChange={changeHandler}
+										/>
+									</div>
+								</div>
+							</div>
+
+							<div className="sm:col-span-4">
+								<label htmlFor="sellphone" className="block text-sm font-medium leading-6 text-gray-900">
+									Seller's Phone 
+								</label>
+								<div className="mt-2">
+									<div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+										<input
+											className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+											id="sellphone"
+											name="sellphone"
+											type="text"
+											placeholder="+359878000111"
+											value={carFormValues.sellphone}
 											onChange={changeHandler}
 										/>
 									</div>

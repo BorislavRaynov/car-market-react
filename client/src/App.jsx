@@ -24,10 +24,10 @@ function App() {
 					<Route path='/logout' element={<Logout />} />
 					<Route path='/register' element={<Register />} />
 					<Route path='/cars' element={<CarList />} />
+					<Route path='/cars/:carId/details' element={<CarDetails />} />
 					<Route path='/cars/create' element={<CarAdCreate />} />
 					<Route path='/favorites' element={<Favorites />} />
 					<Route path='/about' element={<About />} />
-					<Route path='/details' element={<CarDetails />} />
 				</Routes>
 			</div>
 		</>

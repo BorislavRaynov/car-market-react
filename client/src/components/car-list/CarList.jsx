@@ -1,35 +1,29 @@
 // import { Button } from "@headlessui/react"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
+
+import carAPI from "../../api/car-api";
+
 import CarItem from "../car-item/CarItem";
-
-const BASE_URL = "http://localhost:3030/jsonstore/cars"
-
 
 export default function CarList() {
 	const [cars, setCars] = useState([])
 
 	useEffect(() => {
-		(async function getCars() {
-			const response = await fetch(BASE_URL);
-			const result = await response.json();
-			const cars = Object.values(result)
-			setCars(cars)
-			// console.log(cars)
-		})();
-	}, []);
+		carAPI.getAll()
+			.then(result => setCars(result));
+		}, []);
 
 	return (
 		<div className="isolate">
 			<div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
 				<h2 className="flex text-2xl font-bold tracking-tight text-gray-900">Latest adds</h2>
 				<div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-					{cars.map(car =>
-						<CarItem
-							key={car._id}
-							car={car}
-						/>
-					)}
+					{/* //TODO implement spinner */}
+					{cars.length > 0
+						? cars.map(car => <CarItem key={car._id} {...car} />)
+						: <h3 className="flex text-3xl font-bold tracking-tight text-gray-900">No Car Adds Yet!!!</h3>
+					}
 				</div>
 			</div>
 		</div>
