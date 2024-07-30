@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { AuthContext } from './contexts/AuthContext.js';
+import { AuthContextProvider } from './contexts/AuthContext.jsx';
 
 import CarAdCreate from "./components/car-ad-create/CarAdCreate.jsx";
 import CarDetails from "./components/car-details/CarDetails.jsx";
@@ -16,27 +15,9 @@ import Favorites from './components/favorites/Favorites.jsx';
 
 
 function App() {
-	const [authState, setAuthState] = useState({});
-
-	const changeAuthState = (state) => {
-		// TODO: impl persisted authstate
-		localStorage.setItem('accessToken', state.accessToken)
-		setAuthState(state);
-	}
-		
-
-
-
-	const contextData = {
-		userId: authState._id,
-		email: authState.email,
-		accessToken: authState.accessToken,
-		isAuthenticated: !!authState.email,
-		changeAuthState,
-	};
 
 	return (
-		<AuthContext.Provider value={contextData}>
+		<AuthContextProvider>
 			<div className="bg-white">
 				<Header />
 
@@ -52,7 +33,8 @@ function App() {
 					<Route path='/about' element={<About />} />
 				</Routes>
 			</div>
-		</AuthContext.Provider>
+		</AuthContextProvider>
+
 	)
 }
 
