@@ -5,13 +5,9 @@ export default function CarItem({
     _id,
     make,
     model,
-    mileage,
-    color,
     fueltype,
     price,
-    imgURLS,
-    info,
-
+    img1,
 }) {
     return (
         <div className="group relative">
@@ -20,7 +16,7 @@ export default function CarItem({
                     <span aria-hidden="true" className="inset-0" />
                     <img
                         className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                        src={imgURLS[0]}
+                        src={img1}
                     />
                 </Link>
             </div>

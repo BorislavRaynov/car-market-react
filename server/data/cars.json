@@ -1,20 +1,18 @@
 {
     "ca0ebd59-ce19-4336-8848-f042996a8221": {
         "make": "Mercedes Benz",
-        "model": "C Klass",
+        "model": "C-class",
         "mileage": "96000",
         "color": "Light silver",
-        "fueltype": "diesel",
+        "fueltype": "Diesel",
         "price": 55000,
         "sellname": "Gerogi Georgiev",
         "sellphone": "+359868868868",
-        "imgURLS": [
-            "https://cdn.motor1.com/images/mgl/yErxb/s1/mercedes-c-klasse-limousine-2021.jpg",
-            "https://cdn.motor1.com/images/mgl/x7qNq/s3/neue-mercedes-c-klasse-w-206-bildquelle-motor1-deutschland.jpg",
-            "https://assets.autoweek.nl/m/0f4y4s5bzreg_800.jpg",
-            "https://images.ctfassets.net/uaddx06iwzdz/qDYfOZugn1pQ0mmDm2yoj/2d96188eeaf9fd53ccd2b2a003b945c2/mercedes-benz-c-klasse-back.jpeg"
-        ],
-        "details": "This Mercedes-Benz C-Class manual is a comprehensive guide for anyone who wants to learn more about this amazing car. With detailed information about its features, body type, drive side, year, number of seats, transmission, model, manufacturer, number of doors, interior colour, exterior colour, fuel type, and more, this manual is a must-have for any car enthusiast..",
+        "img1": "https://cdn.motor1.com/images/mgl/yErxb/s1/mercedes-c-klasse-limousine-2021.jpg",
+        "img2": "https://cdn.motor1.com/images/mgl/x7qNq/s3/neue-mercedes-c-klasse-w-206-bildquelle-motor1-deutschland.jpg",
+        "img3": "https://assets.autoweek.nl/m/0f4y4s5bzreg_800.jpg",
+        "img4": "https://images.ctfassets.net/uaddx06iwzdz/qDYfOZugn1pQ0mmDm2yoj/2d96188eeaf9fd53ccd2b2a003b945c2/mercedes-benz-c-klasse-back.jpeg",
+        "details": "This Mercedes-Benz C-Class manual is a comprehensive guide for anyone who wants to learn more about this amazing car. With detailed information about its features, body type, drive side, year, number of seats, transmission, model, manufacturer, number of doors, interior colour, exterior colour, fuel type, and more, this manual is a must-have for any car enthusiast.",
         "_id": "ca0ebd59-ce19-4336-8848-f042996a8221"
     },
     "338b6589-39e4-47dc-a618-6b588d2e6d7f": {
@@ -26,12 +24,10 @@
         "price": 65000,
         "sellname": "Ivan Ivanov ",
         "sellphone": "+359877277237",
-        "imgURLS": [
-            "https://www.bmw-m.com/content/dam/bmw/marketBMW_M/www_bmw-m_com/all-models/m-automobile/m5-limousine/2024/bmw-m5-sedan-hd-01-2.jpg",
-            "https://maxtondesign.com/eng_pl_Rear-Splitter-BMW-M5-F90-8030_4.jpg",
-            "https://seversbreeman.nl/app/uploads/2022/05/m5-mob.jpg",
-            "https://i.ytimg.com/vi/iZt7Fwu91FI/sddefault.jpg"
-        ],
+        "img1": "https://www.bmw-m.com/content/dam/bmw/marketBMW_M/www_bmw-m_com/all-models/m-automobile/m5-limousine/2024/bmw-m5-sedan-hd-01-2.jpg",
+        "img2": "https://maxtondesign.com/eng_pl_Rear-Splitter-BMW-M5-F90-8030_4.jpg",
+        "img3": "https://seversbreeman.nl/app/uploads/2022/05/m5-mob.jpg",
+        "img4": "https://i.ytimg.com/vi/iZt7Fwu91FI/sddefault.jpg",
         "details": "Full main dealer service history, only 2 owners from new , stock engine NOT remapped. The car has had genuine facelift rear lights fitted , and a full carbon kit worth over £3,000 fitted. The car has a very high specification including front massage seats, soft close doors, comfort package, ambient air package, bowers and Wilkins diamond surround sound, 360 camera (Amazing) , Apple car play and much more.",
         "_id": "338b6589-39e4-47dc-a618-6b588d2e6d7f"
     }

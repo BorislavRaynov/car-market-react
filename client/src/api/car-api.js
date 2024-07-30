@@ -1,19 +1,22 @@
 import * as request from "../api/requester";
 
-const BASE_URL = "http://localhost:3030/jsonstore/cars";
+const BASE_URL = "http://localhost:3030/data/cars";
 
-export const getAll = async () => {
+const getAll = async () => {
     const result = await request.get(BASE_URL);
     const cars = Object.values(result);
 
     return cars
 };
 
-export const getOne = (carId) => request.get(`${BASE_URL}/${carId}`);
+const getOne = (carId) => request.get(`${BASE_URL}/${carId}`);
+
+const create=  (carData) => request.post(`${BASE_URL}`, carData)
 
 const gameAPI = {
     getAll,
-    getOne
+    getOne,
+    create,
 };
 
 export default gameAPI;

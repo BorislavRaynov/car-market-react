@@ -1,29 +1,31 @@
-import { useEffect, useRef, useState } from "react"
+import { useNavigate } from "react-router-dom";
+
+import { useForm } from "../../hooks/useForm";
+import { useLogin } from "../../hooks/useAuth";
 
 const initialUserFormValues = {
 	email: '',
 	password: '',
-}
+};
 
 export default function Login() {
-    const [userFormValues, setUserFormValues] = useState(initialUserFormValues)
-
-    const formUserSubmitHandler = (e) => {
-        e.preventDefault()
-        console.log("User login form submitted")
-        console.log(userFormValues)
+    const login = useLogin();
+    const navigate = useNavigate();
+    const loginHandler = async ({ email, password }) => {
+        try {
+            await login(email, password)
+            navigate('/')
+        } catch (err) {
+            console.log(err.message)
+        }
     }
 
-    const changeHandler = (e) => {
-        setUserFormValues(userFormValues => ({...userFormValues, [e.target.name]: e.target.value}))
-    }
-
-    
-	const inputRef = useRef();
-
-	useEffect(() => {
-		inputRef.current.focus()
-	},[])
+    const { 
+        values,
+        changeHandler,
+        submitHandler,
+        inputRef 
+    } = useForm(initialUserFormValues, loginHandler);
 
     return (
         <>
@@ -35,7 +37,7 @@ export default function Login() {
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form className="space-y-6" onSubmit={formUserSubmitHandler}>
+                    <form className="space-y-6" onSubmit={submitHandler}>
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                                 Email address
@@ -47,9 +49,9 @@ export default function Login() {
                                     id="email"
                                     name="email"
                                     type="email"
-                                    autoComplete="email"
+                                    // autoComplete="email"
                                     ref={inputRef}
-                                    value={userFormValues.email}
+                                    value={values.email}
                                     onChange={changeHandler}
                                 />
                             </div>
@@ -68,8 +70,8 @@ export default function Login() {
                                     id="password"
                                     name="password"
                                     type="password"
-                                    autoComplete="current-password"
-                                    value={userFormValues.password}
+                                    // autoComplete="current-password"
+                                    value={values.password}
                                     onChange={changeHandler}
                                 />
                             </div>
@@ -79,7 +81,7 @@ export default function Login() {
                             <button
                                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 type="submit"
-                                onClick={formUserSubmitHandler}
+                                onClick={submitHandler}
                             >
                                 Sign in
                             </button>

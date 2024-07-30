@@ -1,6 +1,7 @@
-// import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import { Link, useNavigate } from "react-router-dom";
 
-import { useEffect, useRef, useState } from "react"
+import { useForm } from "../../hooks/useForm";
+import { useCreateCarAd } from "../../hooks/useCar";
 
 const initialCarFormValues = {
 	make: '',
@@ -19,26 +20,31 @@ const initialCarFormValues = {
 }
 
 export default function CarAdCreate() {
-	const [carFormValues, setCarFormValues] = useState(initialCarFormValues)
+	const navaigate = useNavigate()
+	const createCarAd = useCreateCarAd();
 
-	const formCarSubmitHandler = (e) => {
-		e.preventDefault();
-		console.log('Form Submitted!!!');
-	}
+	const createHandler = async (values) => {
+		try {
+			const { _id: carId } = await createCarAd(values)
 
-	const changeHandler = (e) => {
-		setCarFormValues(carFormValues => ({ ...carFormValues, [e.target.name]: e.target.value }))
-	}
+			navaigate(`/cars/${carId}/details`)
+		} catch (err) {
+			// TODO: set error state and display error
+			console.log(err.message)
+		}
+		
+	};
 
-	const inputRef = useRef();
-
-	useEffect(() => {
-		inputRef.current.focus()
-	}, [])
+	const {
+		values,
+		changeHandler,
+		submitHandler,
+		inputRef,
+	} = useForm(initialCarFormValues, createHandler)
 
 	return (
 		<div className='mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-4xl lg:px-8'>
-			<form onSubmit={formCarSubmitHandler}>
+			<form onSubmit={submitHandler}>
 				<div className="space-y-12">
 					<div className="border-b border-gray-900/10 pb-12">
 						<h2 className="text-base font-semibold leading-7 text-gray-900">Enter vehicle details</h2>
@@ -57,7 +63,7 @@ export default function CarAdCreate() {
 											type="text"
 											ref={inputRef}
 											placeholder="Mercedes"
-											value={carFormValues.make}
+											value={values.make}
 											onChange={changeHandler}
 										/>
 									</div>
@@ -76,7 +82,7 @@ export default function CarAdCreate() {
 											name="model"
 											type="text"
 											placeholder="G500 AMG"
-											value={carFormValues.model}
+											value={values.model}
 											onChange={changeHandler}
 										/>
 									</div>
@@ -95,7 +101,7 @@ export default function CarAdCreate() {
 											name="mileage"
 											type="text"
 											placeholder="150000 km"
-											value={carFormValues.mileage}
+											value={values.mileage}
 											onChange={changeHandler}
 										/>
 									</div>
@@ -114,7 +120,7 @@ export default function CarAdCreate() {
 											name="color"
 											type="text"
 											placeholder="Silver"
-											value={carFormValues.fuel}
+											value={values.color}
 											onChange={changeHandler}
 										/>
 									</div>
@@ -136,7 +142,7 @@ export default function CarAdCreate() {
 											name="fueltype"
 											type="text"
 											placeholder="Petrol"
-											value={carFormValues.fuel}
+											value={values.fuel}
 											onChange={changeHandler}
 										/>
 									</div>
@@ -152,10 +158,10 @@ export default function CarAdCreate() {
 										<input
 											className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
 											id="price"
-											name="peice"
+											name="price"
 											type="text"
 											placeholder="50000$"
-											value={carFormValues.price}
+											value={values.price}
 											onChange={changeHandler}
 										/>
 									</div>
@@ -174,7 +180,7 @@ export default function CarAdCreate() {
 											name="sellname"
 											type="text"
 											placeholder="Ivan Ivanov"
-											value={carFormValues.sellname}
+											value={values.sellname}
 											onChange={changeHandler}
 										/>
 									</div>
@@ -193,7 +199,7 @@ export default function CarAdCreate() {
 											name="sellphone"
 											type="text"
 											placeholder="+359878000111"
-											value={carFormValues.sellphone}
+											value={values.sellphone}
 											onChange={changeHandler}
 										/>
 									</div>
@@ -215,7 +221,7 @@ export default function CarAdCreate() {
 											id="img1"
 											name="img1"
 											type="text"
-											value={carFormValues.img1}
+											value={values.img1}
 											onChange={changeHandler}
 										/>
 									</div>
@@ -233,7 +239,7 @@ export default function CarAdCreate() {
 											id="img2"
 											name="img2"
 											type="text"
-											value={carFormValues.img2}
+											value={values.img2}
 											onChange={changeHandler}
 										/>
 									</div>
@@ -251,7 +257,7 @@ export default function CarAdCreate() {
 											id="img3"
 											name="img3"
 											type="text"
-											value={carFormValues.img3}
+											value={values.img3}
 											onChange={changeHandler}
 										/>
 									</div>
@@ -269,7 +275,7 @@ export default function CarAdCreate() {
 											id="img4"
 											name="img4"
 											type="text"
-											value={carFormValues.img4}
+											value={values.img4}
 											onChange={changeHandler}
 										/>
 									</div>
@@ -288,7 +294,7 @@ export default function CarAdCreate() {
 									id="info"
 									name="info"
 									rows={3}
-									value={carFormValues.info}
+									value={values.info}
 									onChange={changeHandler}
 								/>
 							</div>
@@ -297,13 +303,17 @@ export default function CarAdCreate() {
 				</div>
 
 				<div className="mt-6 flex items-center justify-end gap-x-6">
-					<button type="button" className="text-sm font-semibold leading-6 text-gray-900">
+					<Link
+						to={'/cars'}
+						className="text-sm font-semibold leading-6 text-gray-900"
+						type="button"
+					>
 						Cancel
-					</button>
+					</Link>
 					<button
 						className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
 						type="submit"
-						onClick={formCarSubmitHandler}
+						onClick={submitHandler}
 					>
 						Save
 					</button>

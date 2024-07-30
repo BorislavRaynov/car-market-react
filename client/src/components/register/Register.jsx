@@ -1,29 +1,40 @@
-import { useEffect, useRef, useState } from "react"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { useForm } from "../../hooks/useForm";
+import { useRegister } from "../../hooks/useAuth";
 
 const initialUserFormValues = {
 	email: '',
-	password: '',
-}
+    password: '',
+    rePassword: '',
+};
 
 export default function Register() {
-    const [userFormValues, setUserFormValues] = useState(initialUserFormValues)
+    const [ error, setError ] = useState('');
+    const register = useRegister();
+    const navigate = useNavigate();
 
-    const formUserSubmitHandler = (e) => {
-        e.preventDefault()
-        console.log("User register form submitted")
-        console.log(userFormValues)
-    }
+    const registerHandler = async ({ email, password, rePassword }) => {
+        if(password !== rePassword) {
+            setError('Password missmatch!!!')
+            return;
+        }
 
-    const changeHandler = (e) => {
-        setUserFormValues(userFormValues => ({...userFormValues, [e.target.name]: e.target.value}))
-    }
+        try {
+            await register(email, password)
+            navigate('/')
+        } catch (err) {
+            setError(err.message)
+        }
+    };
 
-    
-	const inputRef = useRef();
-
-	useEffect(() => {
-		inputRef.current.focus()
-	},[])
+    const { 
+        values,
+        changeHandler,
+        submitHandler,
+        inputRef 
+    } = useForm(initialUserFormValues, registerHandler);
 
     return (
         <>
@@ -35,7 +46,7 @@ export default function Register() {
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form className="space-y-6" onSubmit={formUserSubmitHandler}>
+                    <form className="space-y-6" onSubmit={submitHandler}>
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                                 Email address
@@ -47,9 +58,9 @@ export default function Register() {
                                     id="email"
                                     name="email"
                                     type="email"
-                                    autoComplete="email"
+                                    // autoComplete="email"
                                     ref={inputRef}
-                                    value={userFormValues.email}
+                                    value={values.email}
                                     onChange={changeHandler}
                                 />
                             </div>
@@ -68,10 +79,36 @@ export default function Register() {
                                     id="password"
                                     name="password"
                                     type="password"
-                                    autoComplete="current-password"
-                                    value={userFormValues.password}
+                                    // autoComplete="current-password"
+                                    value={values.password}
                                     onChange={changeHandler}
                                 />
+                            </div>
+                        </div>
+
+                        <div>
+                            <div className="flex items-center justify-between">
+                                <label htmlFor="rePassword" className="block text-sm font-medium leading-6 text-gray-900">
+                                    Repeat Password
+                                </label>
+                            </div>
+                            <div className="mt-2">
+                                <input
+                                    required
+                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    type="password"
+                                    id="rePassword"
+                                    name="rePassword"
+                                    // autoComplete="current-password"
+                                    value={values.rePassword}
+                                    onChange={changeHandler}
+                                />
+
+                                {error && (
+                                    <p className="field text-sm text-red-500">
+                                        <span>{error}</span>
+                                    </p>
+                                )}
                             </div>
                         </div>
 
@@ -79,7 +116,7 @@ export default function Register() {
                             <button
                                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 type="submit"
-                                onClick={formUserSubmitHandler}
+                                onClick={submitHandler}
                             >
                                 Register
                             </button>

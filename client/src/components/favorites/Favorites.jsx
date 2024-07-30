@@ -1,53 +1,87 @@
-import { Button } from "@headlessui/react"
-
-const products = [
+const people = [
 	{
-		id: 1,
-		name: 'Basic Tee',
-		href: '#',
-		imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
-		imageAlt: "Front of men's Basic Tee in black.",
-		price: '$35',
-		color: 'Black',
+		name: 'Leslie Alexander',
+		email: 'leslie.alexander@example.com',
+		role: 'Co-Founder / CEO',
+		imageUrl:
+			'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+		lastSeen: '3h ago',
+		lastSeenDateTime: '2023-01-23T13:23Z',
+	},
+	{
+		name: 'Michael Foster',
+		email: 'michael.foster@example.com',
+		role: 'Co-Founder / CTO',
+		imageUrl:
+			'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+		lastSeen: '3h ago',
+		lastSeenDateTime: '2023-01-23T13:23Z',
+	},
+	{
+		name: 'Dries Vincent',
+		email: 'dries.vincent@example.com',
+		role: 'Business Relations',
+		imageUrl:
+			'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+		lastSeen: null,
+	},
+	{
+		name: 'Lindsay Walton',
+		email: 'lindsay.walton@example.com',
+		role: 'Front-end Developer',
+		imageUrl:
+			'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+		lastSeen: '3h ago',
+		lastSeenDateTime: '2023-01-23T13:23Z',
+	},
+	{
+		name: 'Courtney Henry',
+		email: 'courtney.henry@example.com',
+		role: 'Designer',
+		imageUrl:
+			'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+		lastSeen: '3h ago',
+		lastSeenDateTime: '2023-01-23T13:23Z',
+	},
+	{
+		name: 'Tom Cook',
+		email: 'tom.cook@example.com',
+		role: 'Director of Product',
+		imageUrl:
+			'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+		lastSeen: null,
 	},
 ]
 
-export default function Favorites() {
+export default function Favotites() {
 	return (
-		<div className="isolate">
-			<div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-				<h2 className="text-2xl font-bold tracking-tight text-gray-900">Favorites</h2>
-				<div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-					{products.map((product) => (
-						<div key={product.id} className="group relative">
-							<div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-								<img
-									alt={product.imageAlt}
-									src={product.imageSrc}
-									className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-								/>
-							</div>
-							<div className="mt-4 flex justify-between">
-								<div>
-									<h3 className="text-sm text-gray-700">
-										<a href={product.href}>
-											<span aria-hidden="true" className="absolute inset-0" />
-											{product.name}
-										</a>
-									</h3>
-									<p className="mt-1 text-sm text-gray-500">{product.color}</p>
-								</div>
-								<p className="text-sm font-medium text-gray-900">{product.price}</p>
-								<button>
-									<svg className="h-8 w-8 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-									</svg>
-								</button>
-							</div>
+		<ul role="list" className="divide-y divide-gray-100 mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-3xl lg:px-8">
+			{people.map((person) => (
+				<li key={person.email} className="flex justify-between gap-x-6 py-5">
+					<div className="flex min-w-0 gap-x-4">
+						<img alt="" src={person.imageUrl} className="h-12 w-12 flex-none rounded-full bg-gray-50" />
+						<div className="min-w-0 flex-auto">
+							<p className="text-sm font-semibold leading-6 text-gray-900">{person.name}</p>
+							<p className="mt-1 truncate text-xs leading-5 text-gray-500">{person.email}</p>
 						</div>
-					))}
-				</div>
-			</div>
-		</div>
+					</div>
+					<div className="hidden shrink-0 sm:flex sm:flex-row sm:items-end">
+						<button
+							type="button"
+							data-autofocus
+							className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+						>
+							Details
+						</button>
+						<button
+							type="button"
+							className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+						>
+							Remove
+						</button>
+					</div>
+				</li>
+			))}
+		</ul>
 	)
 }

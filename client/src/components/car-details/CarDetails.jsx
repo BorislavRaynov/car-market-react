@@ -1,27 +1,18 @@
-import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 
-import carAPI from '../../api/car-api';
-import CarImgs from '../car-item/car-imgs/CarImgs';
+import { useGetCar } from '../../hooks/useCar';
 
 export default function CarDetails() {
-	const [car, setCar] = useState({});
 	const { carId } = useParams();
-
-	useEffect(() => {
-		(async () => {
-			const result = await carAPI.getOne(carId);
-			setCar(result);
-		})();
-	}, []);
+	const [car] = useGetCar(carId)
 
 	return (
 		<div className="pt-20">
-			{/* <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+			<div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
 				<div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
 					<img
 						alt="main-pic"
-						src={car.imgURLS[0]}
+						src={car.img1}
 						className="h-full w-full object-cover object-center"
 					/>
 				</div>
@@ -29,14 +20,14 @@ export default function CarDetails() {
 					<div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
 						<img
 							alt="second-pic"
-							src={car.imgURLS[1]}
+							src={car.img2}
 							className="h-full w-full object-cover object-center"
 						/>
 					</div>
 					<div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
 						<img
 							alt="third-pic"
-							src={car.imgURLS[2]}
+							src={car.img3}
 							className="h-full w-full object-cover object-center"
 						/>
 					</div>
@@ -44,12 +35,11 @@ export default function CarDetails() {
 				<div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
 					<img
 						alt="forth-pic"
-						src={car.imgURLS[3]}
+						src={car.img4}
 						className="h-full w-full object-cover object-center"
 					/>
 				</div>
-			</div> */}
-			<CarImgs urls={car.imgURLS} />
+			</div>
 
 			<div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
 				<div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
@@ -114,7 +104,7 @@ export default function CarDetails() {
 						<h2 className="text-xl font-medium text-gray-900">Details</h2>
 
 						<div className="mt-4 space-y-6">
-							<p className="text-lg text-gray-600">{car.details}</p>
+							<p className="text-lg text-gray-600">{car.info}</p>
 						</div>
 					</div>
 				</div>
