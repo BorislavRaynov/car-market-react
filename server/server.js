@@ -1339,6 +1339,80 @@
     	}
     };
     var seedData = {
+        cars: {
+            "3b8e8e66-e8b2-4949-8330-bffd04225152": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                make: "Mercedes Benz",
+                model: "C-class",
+                mileage: "96000",
+                color: "Light silver",
+                fueltype: "Diesel",
+                price: 55000,
+                sellname: "Gerogi Georgiev",
+                sellphone: "+359868868868",
+                img1: "https://cdn.motor1.com/images/mgl/yErxb/s1/mercedes-c-klasse-limousine-2021.jpg",
+                img2: "https://cdn.motor1.com/images/mgl/x7qNq/s3/neue-mercedes-c-klasse-w-206-bildquelle-motor1-deutschland.jpg",
+                img3: "https://assets.autoweek.nl/m/0f4y4s5bzreg_800.jpg",
+                img4: "https://images.ctfassets.net/uaddx06iwzdz/qDYfOZugn1pQ0mmDm2yoj/2d96188eeaf9fd53ccd2b2a003b945c2/mercedes-benz-c-klasse-back.jpeg",
+                info: "This Mercedes-Benz C-Class manual is a comprehensive guide for anyone who wants to learn more about this amazing car. With detailed information about its features, body type, drive side, year, number of seats, transmission, model, manufacturer, number of doors, interior colour, exterior colour, fuel type, and more, this manual is a must-have for any car enthusiast.",
+                _createdOn: 1722347405254,
+                _id: "3b8e8e66-e8b2-4949-8330-bffd04225152"
+            },
+            "98ffad01-c2c0-4814-9da1-e659218acd69": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                make: "BMW",
+                model: "M5",
+                mileage: "112000",
+                color: "Dark silver",
+                fueltype: "Petrol",
+                price: 65000,
+                sellname: "Ivan Ivanov ",
+                sellphone: "+359877277237",
+                img1: "https://www.bmw-m.com/content/dam/bmw/marketBMW_M/www_bmw-m_com/all-models/m-automobile/m5-limousine/2024/bmw-m5-sedan-hd-01-2.jpg",
+                img2: "https://maxtondesign.com/eng_pl_Rear-Splitter-BMW-M5-F90-8030_4.jpg",
+                img3: "https://seversbreeman.nl/app/uploads/2022/05/m5-mob.jpg",
+                img4: "https://i.ytimg.com/vi/iZt7Fwu91FI/sddefault.jpg",
+                info: "Full main dealer service history, only 2 owners from new , stock engine NOT remapped. The car has had genuine facelift rear lights fitted , and a full carbon kit worth over £3,000 fitted. The car has a very high specification including front massage seats, soft close doors, comfort package, ambient air package, bowers and Wilkins diamond surround sound, 360 camera (Amazing) , Apple car play and much more.",
+                _createdOn: 1722347645096,
+                _id: "98ffad01-c2c0-4814-9da1-e659218acd69"
+            },
+            "78d5264a-3d01-4477-a785-0a5e28f94360": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                make: "Alfa Romeo",
+                model: "Stelvio",
+                mileage: "88000",
+                color: "Red",
+                fueltype: "Hybrid",
+                price: "47000",
+                sellname: "Petar Petrov",
+                sellphone: "+359869237481",
+                img1: "https://hips.hearstapps.com/hmg-prod/images/2024-alfa-romeo-stelvio-102-jpeg-63ffa98aa7813.jpeg?crop=0.619xw:0.465xh;0.161xw,0.345xh&resize=1200:*",
+                img2: "https://car-images.bauersecure.com/wp-images/163704/90-alfaromeostelvio-fronttracking.jpg",
+                img3: "https://di-uploads-pod21.dealerinspire.com/brownsalfaromeo/uploads/2023/08/mlp-img-int-2024-stelvio.jpg",
+                img4: "https://www.autoelegance-tuning.com/images/20231227152655-eng_pl_Side-Skirts-Diffusers-Alfa-Romeo-Stelvio-Quadrifoglio-Mk1-19287_5.jpg",
+                info: "For 2024, the Stelvio gets a new 12.3-inch digital gauge cluster that can be set to three different configurations: Evolved, Relax, and Heritage. Alfa has made slight tweaks to the front fascia, including the repositioning of the logo and revisions to the two bottom air ducts.",
+                _createdOn: 1722347845709,
+                _id: "78d5264a-3d01-4477-a785-0a5e28f94360"
+            },
+            "2b797273-b2fc-4a5d-85e7-56933fe041db": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                make: "Audi",
+                model: "RS6",
+                mileage: "13000",
+                color: "Green",
+                fueltype: "Petrol",
+                price: "92000",
+                sellname: "Nedko Shopov",
+                sellphone: "+359778999111",
+                img1: "https://cdn.motor1.com/images/mgl/jboxl/s3/audi-rs6-avant-by-mansory-and-mtm.jpg",
+                img2: "https://media.ed.edmunds-media.com/audi/rs-6/2024/oem/2024_audi_rs-6_wagon_performance_fq_oem_1_1600.jpg",
+                img3: "https://i.ytimg.com/vi/DbmqZZcIOGU/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB1bJuIZFVsF0aVgevIB-oZiA4V-A",
+                img4: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxHd2l2g4OQRUwJ7cOs4Ul9zauTdGUV8gxxQ&s",
+                info: "Its twin-turbo 4.0 L (3,993 cc) TFSI V8 engine develops 412 kW (560 PS; 553 bhp) at 5700-6600 rpm and 700 N⋅m (516 lbf⋅ft) of torque at 1750-5500 rpm. This will enable the RS 6 Avant to accelerate from 0 to 100 km/h (62.1 mph) in 3.9 seconds.",
+                _createdOn: 1722348769033,
+                _id: "2b797273-b2fc-4a5d-85e7-56933fe041db"
+            }
+        },
     	recipes: {
     		"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
