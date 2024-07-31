@@ -2,8 +2,8 @@ import { useGetAllCars } from "../../hooks/useCar";
 import CarItem from "../car-item/CarItem";
 
 export default function CarList() {
-	const [cars] = useGetAllCars()
-	console.log(cars)
+	const [cars] = useGetAllCars();
+
 	return (
 		<div className="isolate">
 			<div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
@@ -17,5 +17,5 @@ export default function CarList() {
 				</div>
 			</div>
 		</div>
-	)
-}
+	);
+};
