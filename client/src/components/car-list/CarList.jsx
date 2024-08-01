@@ -11,7 +11,7 @@ export default function CarList() {
 				<div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
 					{/* // TODO implement spinner */}
 					{cars.length > 0
-						? cars.map(car => <CarItem key={car._id} {...car} />)
+						? cars.map(car => <CarItem key={car._id} car={car} />)
 						: <h3 className="flex text-3xl font-bold tracking-tight text-gray-900">No Car Adds Yet!!!</h3>
 					}
 				</div>
