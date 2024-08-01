@@ -2,7 +2,7 @@
 import { useAuthContext } from "../../contexts/AuthContext";
 
 import FavoriteItem from "./favorite-item/FavoriteItem";
-import { useGetAllFavorites } from "../../hooks/useFavorite";
+import { useGetAllFavorites } from "../../hooks/useFavorite.js";
 
 export default function Favotites() {
 	const { email } = useAuthContext();
