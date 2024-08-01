@@ -13,10 +13,10 @@ const getOne = (carId) => request.get(`${BASE_URL}/${carId}`);
 
 const create=  (carData) => request.post(`${BASE_URL}`, carData)
 
-const gameAPI = {
+const carAPI = {
     getAll,
     getOne,
     create,
 };
 
-export default gameAPI;
+export default carAPI;
