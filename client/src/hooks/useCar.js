@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 import carAPI from "../api/car-api";
-import gameAPI from "../api/car-api";
 
 export function useGetAllCars() {
     const [cars, setCars] = useState([])
@@ -10,7 +9,7 @@ export function useGetAllCars() {
 		(async () =>{
 			const result = await carAPI.getAll();
 
-			setCars(result)
+			setCars(result);
 		})();
 	}, []);
 
@@ -31,7 +30,7 @@ export function useGetCar(carId) {
 }
 
 export function useCreateCarAd() {
-	const carCreateAdHandler = (carData) => gameAPI.create(carData);
+	const carCreateAdHandler = (carData) => carAPI.create(carData);
 
 	return carCreateAdHandler;
 }

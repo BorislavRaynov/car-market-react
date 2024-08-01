@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect } from "react";
 
 export function useForm(initialValues, submitCallBack) {
     const [values, setValues] = useState(initialValues);
@@ -6,20 +6,22 @@ export function useForm(initialValues, submitCallBack) {
     const inputRef = useRef();
 
 	useEffect(() => {
-		inputRef.current.focus()
-	},[])
+		inputRef.current.focus();
+	},[]);
 
     const changeHandler = (e) => {
         setValues(state => ({
             ...state,
             [e.target.name]: e.target.value
-        }))
+        }));
     };
 
     const submitHandler = (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
-        submitCallBack(values)
+        submitCallBack(values);
+
+        setValues(initialValues);
     };
 
     return {

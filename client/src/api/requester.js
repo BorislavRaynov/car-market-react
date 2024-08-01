@@ -24,6 +24,10 @@ async function requester(method, url, data) {
     }
 
     const response = await fetch(url, options);
+    if (response.status === 204) {
+        return;
+    };
+
     const result = await response.json();
 
     if(!response.ok) {
@@ -33,7 +37,7 @@ async function requester(method, url, data) {
     return result;
 }
 
-export const get = requester.bind(null, 'GET')
-export const post = requester.bind(null, 'POST')
-export const put = requester.bind(null, 'PUT')
-export const del = requester.bind(null, 'DELETE')
+export const get = requester.bind(null, 'GET');
+export const post = requester.bind(null, 'POST');
+export const put = requester.bind(null, 'PUT');
+export const del = requester.bind(null, 'DELETE');
