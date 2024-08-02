@@ -1,10 +1,14 @@
 import { useParams } from 'react-router-dom';
 
 import { useGetCar } from '../../hooks/useCar';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 export default function CarDetails() {
 	const { carId } = useParams();
-	const [car] = useGetCar(carId)
+	const [car] = useGetCar(carId);
+	const { userId } = useAuthContext()
+
+	const isOwner = userId === car._ownerId;
 
 	return (
 		<div className="pt-20">
@@ -50,18 +54,22 @@ export default function CarDetails() {
 					<h2 className="sr-only">Product information</h2>
 					<p className="text-3xl tracking-tight text-gray-900">Price: {car.price} $</p>
 
-					<button
-						type="submit"
-						className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-					>
-						Edit
-					</button>
-					<button
-						type="submit"
-						className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-red-600 px-8 py-3 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-					>
-						Delete
-					</button>
+					{isOwner && (
+						<>
+							<button
+								type="submit"
+								className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+							>
+								Edit
+							</button>
+							<button
+								type="submit"
+								className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-red-600 px-8 py-3 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+							>
+								Delete
+							</button>
+						</>
+					)}
 				</div>
 
 				<div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
