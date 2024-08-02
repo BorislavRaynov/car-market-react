@@ -3,7 +3,7 @@ import * as request from "../api/requester";
 const BASE_URL = "http://localhost:3030/data/cars";
 
 const getAll = async () => {
-    const result = await request.get(BASE_URL);
+    const result = await request.get(`${BASE_URL}?sortBy=_createdOn%20desc`);
     const cars = Object.values(result);
 
     return cars
