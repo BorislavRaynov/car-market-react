@@ -49,7 +49,6 @@ export default function Login() {
                                     id="email"
                                     name="email"
                                     type="email"
-                                    // autoComplete="email"
                                     ref={inputRef}
                                     value={values.email}
                                     onChange={changeHandler}
@@ -70,7 +69,6 @@ export default function Login() {
                                     id="password"
                                     name="password"
                                     type="password"
-                                    // autoComplete="current-password"
                                     value={values.password}
                                     onChange={changeHandler}
                                 />

@@ -29,7 +29,6 @@ export default function CarAdCreate() {
 
 			navaigate(`/cars/${carId}/details`)
 		} catch (err) {
-			// TODO: set error state and display error
 			console.log(err.message)
 		}
 		

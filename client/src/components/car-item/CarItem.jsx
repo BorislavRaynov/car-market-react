@@ -1,4 +1,3 @@
-// import CarImg from "./car-img/CarImg";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../contexts/AuthContext";
 

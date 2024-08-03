@@ -58,7 +58,6 @@ export default function Register() {
                                     id="email"
                                     name="email"
                                     type="email"
-                                    // autoComplete="email"
                                     ref={inputRef}
                                     value={values.email}
                                     onChange={changeHandler}
@@ -79,7 +78,6 @@ export default function Register() {
                                     id="password"
                                     name="password"
                                     type="password"
-                                    // autoComplete="current-password"
                                     value={values.password}
                                     onChange={changeHandler}
                                 />
@@ -99,7 +97,6 @@ export default function Register() {
                                     type="password"
                                     id="rePassword"
                                     name="rePassword"
-                                    // autoComplete="current-password"
                                     value={values.rePassword}
                                     onChange={changeHandler}
                                 />

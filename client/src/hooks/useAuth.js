@@ -1,6 +1,6 @@
-import { login, logout, register } from "../api/auth-api";
-
 import { useAuthContext } from "../contexts/AuthContext";
+
+import { login, logout, register } from "../api/auth-api";
 
 export const useLogin = () => {
     const { changeAuthState } = useAuthContext();
