@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react'
-import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
+import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react';
+import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 
-import { useLogout } from '../../hooks/useAuth'
+import { useLogout } from '../../hooks/useAuth';
 
 export default function Logout() {
     const [open, setOpen] = useState(true);
@@ -12,12 +12,14 @@ export default function Logout() {
     const logout = useLogout();
 
     const logoutClickHandler = (e) => {
+        e.preventDefault();
         logout();
         setOpen(false);
         navigate('/');
     };
 
     const cancelClickHandler = (e) => {
+        e.preventDefault();
         setOpen(false);
         navigate('/');
     }
@@ -70,5 +72,5 @@ export default function Logout() {
                 </div>
             </div>
         </Dialog>
-    )
-}
+    );
+};
