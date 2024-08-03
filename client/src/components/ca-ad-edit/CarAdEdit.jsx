@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 import { useForm } from "../../hooks/useForm";
@@ -6,32 +5,15 @@ import { useGetCar } from "../../hooks/useCar";
 
 import carAPI from "../../api/car-api";
 
-const initialValues = {
-    make: '',
-    model: '',
-    mileage: '',
-    color: '',
-    fueltype: '',
-    price: '',
-    sellname: '',
-    sellphone: '',
-    img1: '',
-    img2: '',
-    img3: '',
-    img4: '',
-    info: '',
-}
-
 export default function CarAdEdit() {
     const navigate = useNavigate();
     const { carId } = useParams();
-    const [car ] = useGetCar(carId);
-    const initialFormValues = useMemo(() => Object.assign({}, initialValues, car), [car]);
+    const [car] = useGetCar(carId);
 
     const { values,
         changeHandler,
         submitHandler,
-        inputRef, } = useForm(initialFormValues, async (values) => {
+        inputRef, } = useForm(car, async (values) => {
             await carAPI.update(carId, values);
 
             navigate(`/cars/${carId}/details`)
