@@ -16,7 +16,7 @@ export default function CarAdEdit() {
         inputRef, } = useForm(car, async (values) => {
             await carAPI.update(carId, values);
 
-            navigate(`/cars/${carId}/details`)
+            navigate(`/cars/${carId}/details`);
         });
 
     return (
