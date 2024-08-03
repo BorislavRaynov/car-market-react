@@ -13,6 +13,7 @@ import Register from "./components/register/Register.jsx";
 import About from './components/about/About.jsx';
 import Favorites from './components/favorites/Favorites.jsx';
 import CarDelete from './components/car-delete/CarDelete.jsx';
+import CarAdEdit from './components/ca-ad-edit/CarAdEdit.jsx';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
 					<Route path='/cars' element={<CarList />} />
 					<Route path='/cars/:carId/details' element={<CarDetails />} />
 					<Route path='/cars/:carId/delete' element={<CarDelete />} />
+					<Route path='/cars/:carId/edit' element={<CarAdEdit />} />
 					<Route path='/cars/create' element={<CarAdCreate />} />
 					<Route path='/favorites' element={<Favorites />} />
 					<Route path='/about' element={<About />} />

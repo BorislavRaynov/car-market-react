@@ -15,11 +15,14 @@ const create =  (carData) => request.post(`${BASE_URL}`, carData);
 
 const remove = (carId) => request.del(`${BASE_URL}/${carId}`);
 
+const update = (carId, carData) => request.put(`${BASE_URL}/${carId}`, carData)
+
 const carAPI = {
     getAll,
     getOne,
     create,
     remove,
+    update,
 };
 
 export default carAPI;
