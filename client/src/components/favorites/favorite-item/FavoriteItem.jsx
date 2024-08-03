@@ -1,24 +1,15 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import * as request from '../../../api/requester'
+import favoriteAPI from "../../../api/favorite-api";
 
 export default function FavoriteItem({ 
     _id,
     car,
-    changeState
  }) {
-    const navigate = useNavigate()
-
-    const detailsClickHandler = (e) => {
-        e.preventDefault()
-        
-        navigate(`/cars/${car._id}/details`)
-    }
-
-    const deleteClickHandler = (e) => {
+    const deleteClickHandler = async (e) => {
         e.preventDefault()
 
-        request.del(`http://localhost:3030/data/favorites/${_id}`)
+        await favoriteAPI.removeFav(_id)
     }
 
     return (
@@ -31,14 +22,12 @@ export default function FavoriteItem({
                 </div>
             </div>
             <div className="hidden shrink-0 sm:flex sm:flex-row sm:items-end">
-                <button
+                <Link
+                    to={`/cars/${car._id}/details`}
                     className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                    type="button"
-                    data-autofocus
-                    onClick={detailsClickHandler}
                 >
                     Details
-                </button>
+                </Link>
                 <button
                     className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
                     type="button"
