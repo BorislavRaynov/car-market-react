@@ -34,3 +34,16 @@ export function useCreateCarAd() {
 
 	return carCreateAdHandler;
 }
+
+export function useDeleteCarAd() {
+	const carDeleteAdHandler = async (carId) => {
+		try {
+            await carAPI.remove(carId);
+        }
+        catch (err) {
+            console.log(err.message);
+        }
+	}
+
+	return carDeleteAdHandler;
+}

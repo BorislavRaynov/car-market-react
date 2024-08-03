@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from "react";
 
 export function useForm(initialValues, submitCallBack) {
     const [values, setValues] = useState(initialValues);
-
     const inputRef = useRef();
 
 	useEffect(() => {
@@ -10,6 +9,7 @@ export function useForm(initialValues, submitCallBack) {
 	},[]);
 
     const changeHandler = (e) => {
+        e.preventDefault();
         setValues(state => ({
             ...state,
             [e.target.name]: e.target.value
