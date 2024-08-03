@@ -15,7 +15,7 @@ import Favorites from './components/favorites/Favorites.jsx';
 import CarDelete from './components/car-delete/CarDelete.jsx';
 import CarAdEdit from './components/ca-ad-edit/CarAdEdit.jsx';
 import PrivateGuard from './components/common/PrivteGuard.jsx';
-
+import Page404 from './components/page-404/Page404.jsx'
 
 function App() {
 
@@ -38,6 +38,7 @@ function App() {
 						<Route path='/favorites' element={<Favorites />} />
 						<Route path='/logout' element={<Logout />} />
 					</Route>
+					<Route path='*' element={<Page404 />}/>
 				</Routes>
 			</div>
 		</AuthContextProvider>

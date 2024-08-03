@@ -1,4 +1,4 @@
-import { ArrowPathIcon, HandThumbUpIcon, StarIcon } from '@heroicons/react/24/outline'
+import { ArrowPathIcon, HandThumbUpIcon, StarIcon } from '@heroicons/react/24/outline';
 
 const features = [
 	{
@@ -58,5 +58,5 @@ export default function Example() {
 				</div>
 			</div>
 		</div>
-	)
-}
+	);
+};
