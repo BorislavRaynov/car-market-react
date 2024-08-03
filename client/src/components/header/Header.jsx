@@ -11,7 +11,7 @@ const navigation = [
 ]
 
 export default function Header() {
-    const { isAuthenticated } = useAuthContext();
+    const { email, isAuthenticated } = useAuthContext();
 
     return (
         <header className="absolute inset-x-0 top-0 z-50">
@@ -36,9 +36,13 @@ export default function Header() {
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                     {isAuthenticated
                         ? (
-                            <Link to="/logout" className="text-sm font-semibold leading-6 text-gray-900">
-                                Log out <span aria-hidden="true">&rarr;</span>
-                            </Link>
+                            <>
+                                <span className="text-xs tracking-tight text-gray-900">{email}</span>
+                                <Link to="/logout" className="text-sm font-semibold leading-6 text-gray-900">
+                                    Log out <span aria-hidden="true">&rarr;</span>
+                                </Link>
+                            </>
+
                         )
                         : (
                             <>
