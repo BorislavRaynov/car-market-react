@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import { useGetCar } from '../../hooks/useCar';
 import { useAuthContext } from '../../contexts/AuthContext';
@@ -6,7 +6,14 @@ import { useAuthContext } from '../../contexts/AuthContext';
 export default function CarDetails() {
 	const { carId } = useParams();
 	const [car] = useGetCar(carId);
-	const { userId } = useAuthContext()
+	const { userId } = useAuthContext();
+	// const navigate = useNavigate();
+
+	// const onDeleteClickHandler = (e) => {
+	// 	e.preventDefault()
+
+	// 	navigate(`/cars/${carId}/delete`)
+	// };
 
 	const isOwner = userId === car._ownerId;
 
@@ -62,12 +69,19 @@ export default function CarDetails() {
 							>
 								Edit
 							</button>
-							<button
-								type="submit"
+							<Link 
+								to={`/cars/${carId}/delete`}
 								className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-red-600 px-8 py-3 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
 							>
 								Delete
-							</button>
+							</Link>
+							{/* <button
+								className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-red-600 px-8 py-3 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+								type="submit"
+								onClick={onDeleteClickHandler}
+							>
+								Delete
+							</button> */}
 						</>
 					)}
 				</div>
