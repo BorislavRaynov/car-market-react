@@ -142,7 +142,7 @@ export default function CarAdCreate() {
 											name="fueltype"
 											type="text"
 											placeholder="Petrol"
-											value={values.fuel}
+											value={values.fueltype}
 											onChange={changeHandler}
 										/>
 									</div>

@@ -63,13 +63,19 @@ export default function CarDetails() {
 
 					{isOwner && (
 						<>
-							<button
+							{/* <button
 								type="submit"
 								className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
 							>
 								Edit
-							</button>
-							<Link 
+							</button> */}
+							<Link
+								to={`/cars/${carId}/edit`}
+								className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+							>
+								Edit
+							</Link>
+							<Link
 								to={`/cars/${carId}/delete`}
 								className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-red-600 px-8 py-3 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
 							>
