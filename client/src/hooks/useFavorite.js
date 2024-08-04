@@ -21,24 +21,15 @@ export function useGetFavsByEmail(email) {
 
 	useEffect(() => {
 		(async () => {
-			const result = await favoriteAPI.getByEmail(email);
+			try {
+				const result = await favoriteAPI.getByEmail(email);
 
-			setFavsByEmail(result);
-
+				setFavsByEmail(result);
+			} catch (err) {
+				console.log(err.message)
+			}
 		})();
 	}, []);
 
 	return [favsByEmail, setFavsByEmail]
 };
-
-// export function useCheckCarInFavorites(email, carId) {
-// 	const [userFavorites] = useGetFavsByEmail(email);
-
-// 	const favList = userFavorites.filter(fav => fav.car._id === carId);
-
-// 	if(favList.length > 0) {
-// 		return true
-// 	} else {
-// 		return false
-// 	}
-// }

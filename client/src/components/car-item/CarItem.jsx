@@ -9,7 +9,7 @@ export default function CarItem({
     car,
 }) {
     const { email } = useAuthContext();
-    const [favsByEmail, setFavsByEmail] = useGetFavsByEmail(email)
+    const [favsByEmail, setFavsByEmail] = useGetFavsByEmail(email);
 
     const favData = {
         email: email,
@@ -26,7 +26,7 @@ export default function CarItem({
             setFavsByEmail(favsByEmail => ([...favsByEmail, result]))
         } else {
             alert('This ad is laready in your favorites!!');
-        }
+        }   
     }
 
     return (
