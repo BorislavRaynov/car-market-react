@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { useRegister } from "../../hooks/useAuth";
 
+import styles from './Register.module.css'
+
 const initialUserFormValues = {
 	email: '',
     password: '',
@@ -100,9 +102,9 @@ export default function Register() {
                                     value={values.rePassword}
                                     onChange={changeHandler}
                                 />
-
+{/* className="field text-sm text-red-500" */}
                                 {error && (
-                                    <p className="field text-sm text-red-500">
+                                    <p className={styles['error-span']}>
                                         <span>{error}</span>
                                     </p>
                                 )}

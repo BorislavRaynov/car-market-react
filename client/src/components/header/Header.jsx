@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 
 import { useAuthContext } from '../../contexts/AuthContext';
 
+import styles from './Header.module.css'
+
 
 const navigation = [
     { name: 'CarList', to: '/cars' },
@@ -37,7 +39,7 @@ export default function Header() {
                     {isAuthenticated
                         ? (
                             <>
-                                <span className="text-xs tracking-tight text-gray-900">{email}</span>
+                                <span className={styles['user-span']} id='user-display'>{email}</span>
                                 <Link to="/logout" className="text-sm font-semibold leading-6 text-gray-900">
                                     Log out <span aria-hidden="true">&rarr;</span>
                                 </Link>
@@ -55,8 +57,6 @@ export default function Header() {
                             </>
                         )
                     }
-
-
                 </div>
             </nav>
         </header>
