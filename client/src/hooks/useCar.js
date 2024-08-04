@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import carAPI from "../api/car-api";
 
 export function useGetAllCars() {
-    const [cars, setCars] = useState([])
+    const [cars, setCars] = useState([]);
 
 	useEffect(() => {
 		(async () =>{
@@ -13,7 +13,7 @@ export function useGetAllCars() {
 		})();
 	}, []);
 
-    return [cars, setCars]
+    return [cars, setCars];
 }
 
 export function useGetCar(carId) {
@@ -40,7 +40,7 @@ export function useGetCar(carId) {
 		})();
 	}, [carId]);
 
-    return [car, setCar]
+    return [car, setCar];
 }
 
 export function useCreateCarAd() {

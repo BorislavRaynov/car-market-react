@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { useAuthContext } from '../../contexts/AuthContext';
 
-import styles from './Header.module.css'
+import styles from './Header.module.css';
 
 
 const navigation = [
@@ -10,7 +10,7 @@ const navigation = [
     { name: 'Create Ad', to: '/cars/create' },
     { name: 'Favorites', to: '/favorites' },
     { name: 'About', to: '/about' },
-]
+];
 
 export default function Header() {
     const { email, isAuthenticated } = useAuthContext();
@@ -48,7 +48,7 @@ export default function Header() {
                         )
                         : (
                             <>
-                                <Link to="/login" className="text-sm font-semibold leading-6 text-gray-900">
+                                <Link to="/login" className="text-sm font-semibold mr-2 leading-6 text-gray-900">
                                     Log in <span aria-hidden="true">&rarr;</span>
                                 </Link>
                                 <Link to="/register" className="text-sm font-semibold leading-6 text-gray-900">

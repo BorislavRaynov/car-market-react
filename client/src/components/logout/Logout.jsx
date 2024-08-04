@@ -14,21 +14,19 @@ export default function Logout() {
     const logoutClickHandler = (e) => {
         e.preventDefault();
         logout();
-        setOpen(false);
         navigate('/');
     };
 
     const cancelClickHandler = (e) => {
         e.preventDefault();
-        setOpen(false);
         navigate('/');
     }
 
     return (
         <Dialog open={open} onClose={setOpen} className="relative z-10">
             <DialogBackdrop
-                transition
                 className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
+                transition
             />
 
             <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
