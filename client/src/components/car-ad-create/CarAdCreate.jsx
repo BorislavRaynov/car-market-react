@@ -35,7 +35,6 @@ export default function CarAdCreate() {
 		} catch (err) {
 			setError(err.message)
 		}
-
 	};
 
 	const {

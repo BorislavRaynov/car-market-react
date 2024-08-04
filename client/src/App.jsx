@@ -2,20 +2,20 @@ import { Routes, Route } from 'react-router-dom';
 
 import { AuthContextProvider } from './contexts/AuthContext.jsx';
 
+import Header from "./components/header/Header.jsx";
+import Home from "./components/home/Home.jsx";
 import CarAdCreate from "./components/car-ad-create/CarAdCreate.jsx";
 import CarDetails from "./components/car-details/CarDetails.jsx";
 import CarList from "./components/car-list/CarList.jsx";
-import Header from "./components/header/Header.jsx";
-import Home from "./components/home/Home.jsx";
+import CarAdEdit from './components/car-ad-edit/CarAdEdit.jsx';
+import CarDelete from './components/car-delete/CarDelete.jsx';
+import Favorites from './components/favorites/Favorites.jsx';
 import Login from "./components/login/Login.jsx";
 import Logout from "./components/logout/Logout.jsx";
 import Register from "./components/register/Register.jsx";
 import About from './components/about/About.jsx';
-import Favorites from './components/favorites/Favorites.jsx';
-import CarDelete from './components/car-delete/CarDelete.jsx';
-import CarAdEdit from './components/ca-ad-edit/CarAdEdit.jsx';
 import PrivateGuard from './components/common/PrivteGuard.jsx';
-import Page404 from './components/page-404/Page404.jsx'
+import Page404 from './components/page-404/Page404.jsx';
 
 function App() {
 

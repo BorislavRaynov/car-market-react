@@ -49,7 +49,8 @@ export default function CarItem({
                     <p className="mt-1 text-sm text-gray-500">{car.fueltype}</p>
                 </div>
 
-                <p className="text-sm font-medium text-gray-900">{car.price} $</p>
+
+                <p className="text-sm text-center font-medium text-gray-900">{car.price} $</p>
 
                 {isAuthenticated &&
                     <button onClick={favouriteClickHandler}>
@@ -58,7 +59,6 @@ export default function CarItem({
                         </svg>
                     </button>
                 }
-
             </div>
         </div>
     )
