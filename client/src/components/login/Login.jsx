@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { useForm } from "../../hooks/useForm";
 import { useLogin } from "../../hooks/useAuth";
+
+import styles from './Login.module.css';
 
 const initialUserFormValues = {
 	email: '',
@@ -9,6 +12,7 @@ const initialUserFormValues = {
 };
 
 export default function Login() {
+    const [ error, setError ] = useState('');
     const login = useLogin();
     const navigate = useNavigate();
     const loginHandler = async ({ email, password }) => {
@@ -16,9 +20,10 @@ export default function Login() {
             await login(email, password)
             navigate('/')
         } catch (err) {
-            console.log(err.message)
+            setError(err.message)
+            return;
         }
-    }
+    };
 
     const { 
         values,
@@ -34,6 +39,11 @@ export default function Login() {
                     <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                         Sign in to your account
                     </h2>
+                    {error && (
+                        <p className={styles['error-span']}>
+                            <span>{error}</span>
+                        </p>
+                    )}
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">

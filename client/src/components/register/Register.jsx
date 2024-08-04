@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { useRegister } from "../../hooks/useAuth";
 
-import styles from './Register.module.css'
+import styles from './Register.module.css';
 
 const initialUserFormValues = {
-	email: '',
+    email: '',
     password: '',
     rePassword: '',
 };
@@ -23,6 +23,11 @@ export default function Register() {
             return;
         }
 
+        if(!email.includes("@")) {
+            setError('Please enter valid email!!!')
+            return;
+        }
+
         try {
             await register(email, password)
             navigate('/')
@@ -31,11 +36,11 @@ export default function Register() {
         }
     };
 
-    const { 
+    const {
         values,
         changeHandler,
         submitHandler,
-        inputRef 
+        inputRef
     } = useForm(initialUserFormValues, registerHandler);
 
     return (
@@ -45,6 +50,11 @@ export default function Register() {
                     <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                         Register
                     </h2>
+                    {error && (
+                        <p className={styles['error-span']}>
+                            <span>{error}</span>
+                        </p>
+                    )}
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -55,12 +65,12 @@ export default function Register() {
                             </label>
                             <div className="mt-2">
                                 <input
+                                    type="email"
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                     required
                                     placeholder="test@gmail.com"
                                     id="email"
                                     name="email"
-                                    type="email"
                                     ref={inputRef}
                                     value={values.email}
                                     onChange={changeHandler}
@@ -105,11 +115,6 @@ export default function Register() {
                                     value={values.rePassword}
                                     onChange={changeHandler}
                                 />
-                                {error && (
-                                    <p className={styles['error-span']}>
-                                        <span>{error}</span>
-                                    </p>
-                                )}
                             </div>
                         </div>
 

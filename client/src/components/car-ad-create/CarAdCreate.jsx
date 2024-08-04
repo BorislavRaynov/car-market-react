@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { useForm } from "../../hooks/useForm";
 import { useCreateCarAd } from "../../hooks/useCar";
+
+import styles from './CarAdCreate.module.css';
 
 const initialCarFormValues = {
 	make: '',
@@ -20,6 +23,7 @@ const initialCarFormValues = {
 }
 
 export default function CarAdCreate() {
+	const [error, setError] = useState('');
 	const navaigate = useNavigate()
 	const createCarAd = useCreateCarAd();
 
@@ -29,9 +33,9 @@ export default function CarAdCreate() {
 
 			navaigate(`/cars/${carId}/details`)
 		} catch (err) {
-			console.log(err.message)
+			setError(err.message)
 		}
-		
+
 	};
 
 	const {
@@ -47,6 +51,12 @@ export default function CarAdCreate() {
 				<div className="space-y-12">
 					<div className="border-b border-gray-900/10 pb-12">
 						<h2 className="text-base font-semibold leading-7 text-gray-900">Enter vehicle details</h2>
+
+						{error && (
+							<p className={styles['error-span']}>
+								<span>{error}</span>
+							</p>
+						)}
 
 						<div className="mt-10 flex gap-x-6 gap-y-8 sm:grid-cols-6">
 							<div className="sm:col-span-4">
@@ -188,7 +198,7 @@ export default function CarAdCreate() {
 
 							<div className="sm:col-span-4">
 								<label htmlFor="sellphone" className="block text-sm font-medium leading-6 text-gray-900">
-									Seller's Phone 
+									Seller's Phone
 								</label>
 								<div className="mt-2">
 									<div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
