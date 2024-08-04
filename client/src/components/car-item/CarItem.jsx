@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+
 import { useAuthContext } from "../../contexts/AuthContext";
+import { useGetFavsByEmail } from "../../hooks/useFavorite";
 
 import favoriteAPI from "../../api/favorite-api";
-import { useGetFavsByEmail } from "../../hooks/useFavorite";
 
 export default function CarItem({
     car,
@@ -21,7 +22,7 @@ export default function CarItem({
         const carIsInFavorites = favsByEmail.filter(fav => fav.car._id === car._id);
 
         if (carIsInFavorites.length === 0) {
-            let result = await favoriteAPI.createFav(favData);
+            const result = await favoriteAPI.createFav(favData);
             setFavsByEmail(favsByEmail => ([...favsByEmail, result]))
         } else {
             alert('This ad is laready in your favorites!!');
