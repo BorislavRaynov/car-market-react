@@ -1,8 +1,9 @@
 import { expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
 
-import Home from "./Home";
 import { BrowserRouter } from 'react-router-dom';
+
+import Home from "./Home";
 
 it('Should have heading', () => {
     render(<BrowserRouter><Home /></BrowserRouter>);
