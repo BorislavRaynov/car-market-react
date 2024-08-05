@@ -1,6 +1,7 @@
 ---
 This is an App designed for my project defence on SoftUni ReactJS course.
-The front-end is on ReactJS
+---
+The front-end is on React.
 The back-end is on SoftUni Practice Server - https://github.com/softuni-practice-server/softuni-practice-server
 ---
 It is a car marketplace where you can browse or post car ads from different users.
@@ -15,7 +16,7 @@ How to run the app
     npm install
     npm run dev
 --
-3: Navigate to server folder and start the server by runing the following command in terminal:
+3: Navigate to server folder and start the server by running the following command in terminal:
 --
     node server
 --
