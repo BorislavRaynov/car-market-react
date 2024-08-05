@@ -7,9 +7,9 @@ The back-end is on SoftUni Practice Server - https://github.com/softuni-practice
 It is a car marketplace where you can browse or post car ads from different users.
 The server is pre-seeded with 3 users and 6 car ads(2 for each user).
 --
-How to run the app
+How to run the app?
 --
-1: Download this repository(car-market-react)
+1: Download the repository
 --
 2: Navigate to client folder and run the following commands in terminal:
 --
