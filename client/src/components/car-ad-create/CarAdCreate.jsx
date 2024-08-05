@@ -24,7 +24,7 @@ const initialCarFormValues = {
 
 export default function CarAdCreate() {
 	const [error, setError] = useState('');
-	const navaigate = useNavigate()
+	const navaigate = useNavigate();
 	const createCarAd = useCreateCarAd();
 
 	const createHandler = async (values) => {
