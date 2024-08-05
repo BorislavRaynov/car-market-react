@@ -42,3 +42,9 @@ export const useLogout = () => {
 
     return logoutHandler;
 };
+
+export const useGetUserEmail = () => {
+    const [email] = useAuthContext();
+
+    return email;
+}

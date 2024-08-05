@@ -1,21 +1,6 @@
 import { useEffect, useState } from "react";
 import favoriteAPI from "../api/favorite-api";
 
-// export function useGetAllFavorites() {
-// 	const [favorites, setFavorites] = useState([])
-
-// 	useEffect(() => {
-// 		(async () => {
-// 			const result = await favoriteAPI.getAllFavoites();
-
-// 			setFavorites(result);
-// 		})();
-// 	}, [favorites]);
-
-// 	console.log(favorites)
-// 	return [favorites, setFavorites]
-// };
-
 export function useGetFavsByEmail(email) {
 	const [favsByEmail, setFavsByEmail] = useState([])
 
@@ -32,4 +17,21 @@ export function useGetFavsByEmail(email) {
 	}, []);
 
 	return [favsByEmail, setFavsByEmail]
+};
+
+export const useCheckCarIsInFavs = async (email, car) => {
+	try {
+		const favoritesList = await favoriteAPI.getByEmail(email);
+		const result = favoritesList.filter(fav => fav.car._id === car._id);
+		return result.length > 0;
+	} catch (err) {
+		console.log(err)
+		return false;
+	}
+};
+
+export const useFavoriteCreateHandler = async (data) => {
+	const result = await favoriteAPI.createFav(data);
+	
+	return result;
 };
