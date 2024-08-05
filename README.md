@@ -20,5 +20,4 @@ How to run the app
     node server
 --
 The app can be accessed on localhost:5173/
-The server ca be accessed on http://localhost:3030/admin/
 --
