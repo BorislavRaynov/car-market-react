@@ -1,5 +1,5 @@
 ---
-This is an App desined for my project defence in SoftUni ReactJS course.
+This is an App designed for my project defence on SoftUni ReactJS course.
 The front-end is on ReactJS
 The back-end is on SoftUni Practice Server - https://github.com/softuni-practice-server/softuni-practice-server
 The server is pre-seeded with 3 users and 6 car ads(2 for each user).
