@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { AuthContextProvider } from './contexts/AuthContext.jsx';
 
 import Header from "./components/header/Header.jsx";
-import Home from "./components/home/Home.jsx";
+import Home from "./components/Home/Home.jsx";
 import CarAdCreate from "./components/car-ad-create/CarAdCreate.jsx";
 import CarDetails from "./components/car-details/CarDetails.jsx";
 import CarList from "./components/car-list/CarList.jsx";
