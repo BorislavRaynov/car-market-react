@@ -20,5 +20,9 @@ How to run the app?
 --
     node server
 --
+To test the app navigate to client folder and run the following command in terminal:
+--
+    npm test
+--
 The app can be accessed on localhost:5173/
 --
