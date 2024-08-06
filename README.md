@@ -15,14 +15,11 @@ How to run the app?
 --
     npm install
     npm run dev
---
 3: Navigate to server folder and start the server by running the following command in terminal:
 --
     node server
---
 To test the app navigate to client folder and run the following command in terminal:
 --
     npm test
---
 The app can be accessed on localhost:5173/
 --
