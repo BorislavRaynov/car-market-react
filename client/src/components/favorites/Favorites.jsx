@@ -20,11 +20,11 @@ export default function Favotites() {
 
 	return (
 		<div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-12 lg:max-w-3xl lg:px-8">
+			<h2 className="mb-10 flex text-2xl justify-center font-bold tracking-tight text-gray-900">Your Favorites</h2>
 			{isLoading
 				? <Spinner />
 				: <>
 					<ul role="list" className="divide-y divide-gray-100 mx-auto max-w-2xl">
-					<h2 className="mb-10 flex text-2xl justify-center font-bold tracking-tight text-gray-900">Your Favorites</h2>
 						{favsByEmail.length > 0
 							? favsByEmail.map(favorite => <FavoriteItem key={favorite._id} deleteHandler={deleteFavorite} {...favorite} />)
 							: <h3 className="flex justify-center text-3xl font-bold tracking-tight text-gray-900">You do not have favorite cars yet!!!</h3>

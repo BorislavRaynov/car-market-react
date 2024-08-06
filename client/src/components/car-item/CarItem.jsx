@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { useFavoriteCreateHandler, useCheckCarIsInFavs } from "../../hooks/useFavorite";
@@ -8,6 +9,18 @@ export default function CarItem({
     car,
 }) {
     const { email, isAuthenticated } = useAuthContext()
+    const [isFavorite, setIsFavorite] = useState(false);
+
+    useEffect(() => {
+        const checkFavoriteStatus = async () => {
+            if (isAuthenticated) {
+                const carIsInFavs = await useCheckCarIsInFavs(email, car);
+                setIsFavorite(carIsInFavs);
+            }
+        };
+        checkFavoriteStatus();
+    }, [email, car, isAuthenticated]);
+
     const favData = {
         email: email,
         car: car,
@@ -15,14 +28,13 @@ export default function CarItem({
 
     const favouriteClickHandler = async (e) => {
         e.preventDefault();
-        
-        const carIsInFavs = await useCheckCarIsInFavs(email, car);
 
-        if(!carIsInFavs) {
-            useFavoriteCreateHandler(favData);
+        if (!isFavorite) {  
+            await useFavoriteCreateHandler(favData);
+            setIsFavorite(true);
         } else {
-            alert('This ad is already in your favorites!!');
-        }  
+            alert('This car is already in your favorites!!');
+        }
     };
 
     return (
@@ -50,7 +62,7 @@ export default function CarItem({
 
                 {isAuthenticated &&
                     <button onClick={favouriteClickHandler}>
-                        <svg className="h-8 w-8 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className={`h-8 w-8 ${isFavorite ? 'text-red-500 fill-current' : 'text-red-400 fill-none'}`} viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                         </svg>
                     </button>
