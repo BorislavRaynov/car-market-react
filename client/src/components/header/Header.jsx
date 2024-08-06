@@ -34,6 +34,7 @@ export default function Header() {
                             to={item.to}
                             key={item.name}
                             className={({ isActive }) => `text-sm font-semibold leading-6 text-gra y-900 ${isActive ? ' underline': ''}`}
+                            end
                         >
                             {item.name}
                         </NavLink>
