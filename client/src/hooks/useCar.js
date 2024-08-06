@@ -8,10 +8,15 @@ export function useGetAllCars() {
 
 	useEffect(() => {
 		(async () =>{
-			const result = await carAPI.getAll();
-			setIsLoading(false)
+			try{
+				const result = await carAPI.getAll();
 
-			setCars(result);
+				setCars(result);
+			} catch(err) {
+				console.log(err.message);
+			} finally {
+				setIsLoading(false);
+			}
 		})();
 	}, []);
 
