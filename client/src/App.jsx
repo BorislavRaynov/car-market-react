@@ -18,6 +18,7 @@ import PrivateGuard from './components/common/PrivteGuard.jsx';
 import Page404 from './components/page-404/Page404.jsx';
 import BackgroundUp from './components/background/backgroundUp/BackgroundUp.jsx';
 import BackgroundDown from './components/background/backgroundDown/BackgroundDown.jsx';
+import Footer from './components/footer/Footer.jsx';
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
 					</Route>
 					<Route path='*' element={<Page404 />} />
 				</Routes>
+				<Footer />
 				<BackgroundDown />
 			</div>
 		</AuthContextProvider>
