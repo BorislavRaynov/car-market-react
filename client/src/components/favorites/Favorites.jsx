@@ -9,11 +9,11 @@ export default function Favotites() {
 	const [favsByEmail, setFavsByEmail, isLoading, setIsLoading] = useGetFavsByEmail(email)
 
 	return (
-		<>
+		<div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-12 lg:max-w-3xl lg:px-8">
 			{isLoading
 				? <Spinner />
 				: <>
-					<ul role="list" className="divide-y divide-gray-100 mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-12 lg:max-w-3xl lg:px-8">
+					<ul role="list" className="divide-y divide-gray-100 mx-auto max-w-2xl">
 					<h2 className="mb-10 flex text-2xl justify-center font-bold tracking-tight text-gray-900">Your Favorites</h2>
 						{favsByEmail.length > 0
 							? favsByEmail.map(favorite => <FavoriteItem key={favorite._id} {...favorite} />)
@@ -22,6 +22,6 @@ export default function Favotites() {
 					</ul>
 				</>
 			}
-		</>
+		</div>
 	);
 };
