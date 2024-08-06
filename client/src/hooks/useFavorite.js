@@ -3,20 +3,23 @@ import favoriteAPI from "../api/favorite-api";
 
 export function useGetFavsByEmail(email) {
 	const [favsByEmail, setFavsByEmail] = useState([])
+	const [isLoading, setIsLoading] = useState(true)
 
 	useEffect(() => {
 		(async () => {
 			try {
 				const result = await favoriteAPI.getByEmail(email);
-
+			
 				setFavsByEmail(result);
 			} catch (err) {
 				console.log(err.message)
+			} finally {
+				setIsLoading(false)
 			}
 		})();
 	}, []);
 
-	return [favsByEmail, setFavsByEmail]
+return [favsByEmail, setFavsByEmail, isLoading, setIsLoading]
 };
 
 export const useCheckCarIsInFavs = async (email, car) => {

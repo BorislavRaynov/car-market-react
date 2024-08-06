@@ -1,9 +1,7 @@
 export default function Spinner() {
     return (
-        <div className="loading-container">
-            <div className="loading-spinner">
-                <span className="loading-spinner-text">Loading...</span>
-            </div>
+        <div className="absolute right-1/2 transform">
+           <div className="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-blue-600" />
         </div>
     );
 };

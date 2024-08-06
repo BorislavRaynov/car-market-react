@@ -4,19 +4,22 @@ import carAPI from "../api/car-api";
 
 export function useGetAllCars() {
     const [cars, setCars] = useState([]);
+	const [isLoading, setIsLoading] = useState(true) 
 
 	useEffect(() => {
 		(async () =>{
 			const result = await carAPI.getAll();
+			setIsLoading(false)
 
 			setCars(result);
 		})();
 	}, []);
 
-    return [cars, setCars];
+    return [cars, setCars, isLoading, setIsLoading];
 }
 
 export function useGetCar(carId) {
+	const [isLoading, setIsLoading] = useState(true)
     const [car, setCar] = useState({
 		make: '',
 		model: '',
@@ -36,11 +39,12 @@ export function useGetCar(carId) {
     useEffect(() => {
 		(async () => {
 			const result = await carAPI.getOne(carId);
+			setIsLoading(false)
 			setCar(result);
 		})();
 	}, [carId]);
 
-    return [car, setCar];
+    return [car, setCar, isLoading, setIsLoading];
 }
 
 export function useCreateCarAd() {
