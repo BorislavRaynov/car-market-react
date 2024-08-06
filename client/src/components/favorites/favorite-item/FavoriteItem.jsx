@@ -1,21 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 
-import favoriteAPI from "../../../api/favorite-api";
 import carAPI from "../../../api/car-api";
 
 export default function FavoriteItem({
+    deleteHandler,
     _id,
     car,
 }) {
     const navigate = useNavigate();
-
-    const removeClickHandler = async (e) => {
-        e.preventDefault();
-
-        await favoriteAPI.removeFav(_id);
-
-        navigate(`/cars`);
-    }
 
     const detailsClickHandler = async (e) => {
         e.preventDefault()
@@ -49,7 +41,7 @@ export default function FavoriteItem({
                 <button
                     className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
                     type="button"
-                    onClick={removeClickHandler}
+                    onClick={() => deleteHandler(_id)}
                 >
                     Remove
                 </button>

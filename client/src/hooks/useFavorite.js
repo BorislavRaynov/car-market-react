@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import favoriteAPI from "../api/favorite-api";
+import favoriteAPI from "../api/favorite-api.js";
 
 export function useGetFavsByEmail(email) {
 	const [favsByEmail, setFavsByEmail] = useState([])
@@ -9,7 +9,7 @@ export function useGetFavsByEmail(email) {
 		(async () => {
 			try {
 				const result = await favoriteAPI.getByEmail(email);
-			
+
 				setFavsByEmail(result);
 			} catch (err) {
 				console.log(err.message)
@@ -17,9 +17,9 @@ export function useGetFavsByEmail(email) {
 				setIsLoading(false)
 			}
 		})();
-	}, []);
+	}, [email]);
 
-return [favsByEmail, setFavsByEmail, isLoading, setIsLoading]
+	return [favsByEmail, setFavsByEmail, isLoading, setIsLoading]
 };
 
 export const useCheckCarIsInFavs = async (email, car) => {
@@ -35,6 +35,6 @@ export const useCheckCarIsInFavs = async (email, car) => {
 
 export const useFavoriteCreateHandler = async (data) => {
 	const result = await favoriteAPI.createFav(data);
-	
+
 	return result;
 };
