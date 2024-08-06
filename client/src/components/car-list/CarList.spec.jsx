@@ -8,7 +8,7 @@ import CarList from "./CarList";
 it('Should have Latest adds', () => {
     render(<BrowserRouter><CarList /></BrowserRouter>);
 
-    const ltsAds = screen.getByText('Latest adds');
+    const ltsAds = screen.getByText('Latest Adds');
 
     expect(ltsAds).toBeVisible(ltsAds);
 });
