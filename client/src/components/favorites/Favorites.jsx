@@ -6,7 +6,7 @@ import FavoriteItem from "./favorite-item/FavoriteItem";
 
 export default function Favotites() {
 	const { email } = useAuthContext();
-	const [favsByEmail, setFavsByEmail, isLoading, setIsLoading] = useGetFavsByEmail(email)
+	const [favsByEmail, setFavsByEmail, isLoading, setIsLoading] = useGetFavsByEmail(email);
 
 	return (
 		<div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-12 lg:max-w-3xl lg:px-8">
