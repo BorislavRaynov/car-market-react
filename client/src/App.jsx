@@ -36,7 +36,7 @@ function App() {
 					<Route path='/cars/:carId/details' element={<CarDetails />} />
 					<Route path='/about' element={<About />} />
 					<Route element={<PrivateGuard />}>
-						<Route path='/cars/create' element={<CarAdCreate />} />
+						<Route path='/carad/create' element={<CarAdCreate />} />
 						<Route path='/cars/:carId/edit' element={<CarAdEdit />} />
 						<Route path='/cars/:carId/delete' element={<CarDelete />} />
 						<Route path='/favorites' element={<Favorites />} />

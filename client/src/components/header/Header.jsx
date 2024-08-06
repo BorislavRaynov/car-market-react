@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import { useAuthContext } from '../../contexts/AuthContext';
 
@@ -7,7 +7,7 @@ import styles from './Header.module.css';
 
 const navigation = [
     { name: 'CarList', to: '/cars' },
-    { name: 'Create Ad', to: '/cars/create' },
+    { name: 'Create Ad', to: '/carad/create' },
     { name: 'Favorites', to: '/favorites' },
     { name: 'About', to: '/about' },
 ];
@@ -30,9 +30,13 @@ export default function Header() {
                 </div>
                 <div className="hidden lg:flex lg:gap-x-12">
                     {navigation.map((item) => (
-                        <Link key={item.name} to={item.to} className="text-sm font-semibold leading-6 text-gray-900">
+                        <NavLink 
+                            to={item.to}
+                            key={item.name}
+                            className={({ isActive }) => `text-sm font-semibold leading-6 text-gra y-900 ${isActive ? ' underline': ''}`}
+                        >
                             {item.name}
-                        </Link>
+                        </NavLink>
                     ))}
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
