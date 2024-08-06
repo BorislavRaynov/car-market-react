@@ -45,11 +45,13 @@ export default function CarAdCreate() {
 	} = useForm(initialCarFormValues, createHandler)
 
 	return (
-		<div className='mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-4xl lg:px-8'>
+		<div className='mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-12 lg:max-w-4xl lg:px-8'>
 			<form onSubmit={submitHandler}>
 				<div className="space-y-12">
 					<div className="border-b border-gray-900/10 pb-12">
-						<h2 className="text-base font-semibold leading-7 text-gray-900">Enter vehicle details</h2>
+						<h2 className="flex text-2xl justify-center font-bold tracking-tight text-gray-900">
+							Enter vehicle details
+						</h2>
 
 						{error && (
 							<p className={styles['error-span']}>
