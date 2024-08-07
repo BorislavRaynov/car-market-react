@@ -1,9 +1,9 @@
 import { useAuthContext } from "../../contexts/AuthContext";
 import { useGetFavsByEmail } from "../../hooks/useFavorite.js";
-import Spinner from "../spinner/Spinner.jsx";
+import { useFavoriteRemoveHandler } from "../../hooks/useFavorite.js";
 
+import Spinner from "../spinner/Spinner.jsx";
 import FavoriteItem from "./favorite-item/FavoriteItem";
-import favoriteAPI from "../../api/favorite-api.js";
 
 export default function Favotites() {
 	const { email } = useAuthContext();
@@ -11,7 +11,7 @@ export default function Favotites() {
 
 	const deleteFavorite = async (favoriteId) => {
 		try {
-			await favoriteAPI.removeFav(favoriteId);
+			await useFavoriteRemoveHandler(favoriteId);
 			setFavsByEmail(prevFavs => prevFavs.filter(fav => fav._id !== favoriteId));
 		} catch (err) {
 			console.error(err.message);

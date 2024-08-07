@@ -22,19 +22,30 @@ export function useGetFavsByEmail(email) {
 	return [favsByEmail, setFavsByEmail, isLoading, setIsLoading]
 };
 
-export const useCheckCarIsInFavs = async (email, car) => {
-	try {
-		const favoritesList = await favoriteAPI.getByEmail(email);
-		const result = favoritesList.filter(fav => fav.car._id === car._id);
-		return result.length > 0;
-	} catch (err) {
-		console.log(err)
-		return false;
-	}
-};
+export function useCheckFavoriteStatus(email, car, isAuthenticated) {
+	const [isFavorite, setIsFavorite] = useState(false);
+
+	useEffect(() => {
+		(async () => {
+			if (isAuthenticated) {
+				const favoritesList = await favoriteAPI.getByEmail(email);
+				const result = favoritesList.filter(fav => fav.car._id === car._id);
+				setIsFavorite(result.length > 0);
+			}
+		})();
+	}, [email, car, isAuthenticated])
+
+	return [isFavorite, setIsFavorite]
+}
 
 export const useFavoriteCreateHandler = async (data) => {
 	const result = await favoriteAPI.createFav(data);
+
+	return result;
+};
+
+export const useFavoriteRemoveHandler = async (favId) => {
+	const result = await favoriteAPI.removeFav(favId);
 
 	return result;
 };

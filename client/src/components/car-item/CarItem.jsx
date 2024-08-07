@@ -1,25 +1,13 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { useFavoriteCreateHandler, useCheckCarIsInFavs } from "../../hooks/useFavorite";
-
 import { useAuthContext } from "../../contexts/AuthContext";
+import { useFavoriteCreateHandler, useCheckFavoriteStatus } from "../../hooks/useFavorite";
 
 export default function CarItem({
     car,
 }) {
     const { email, isAuthenticated } = useAuthContext()
-    const [isFavorite, setIsFavorite] = useState(false);
-
-    useEffect(() => {
-        const checkFavoriteStatus = async () => {
-            if (isAuthenticated) {
-                const carIsInFavs = await useCheckCarIsInFavs(email, car);
-                setIsFavorite(carIsInFavs);
-            }
-        };
-        checkFavoriteStatus();
-    }, [email, car, isAuthenticated]);
+    const [isFavorite, setIsFavorite] = useCheckFavoriteStatus(email, car, isAuthenticated);
 
     const favData = {
         email: email,
