@@ -10,7 +10,6 @@ export default function CarDelete() {
     const { carId } = useParams();
     const [open, setOpen] = useState(true);
     const carDeleteAdHandler = useDeleteCarAd();
-
     const navigate = useNavigate();
 
     const onClose = (e) => {

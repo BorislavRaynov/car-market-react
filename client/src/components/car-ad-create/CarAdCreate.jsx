@@ -6,6 +6,8 @@ import { useCreateCarAd } from "../../hooks/useCar";
 
 import styles from './CarAdCreate.module.css';
 
+import { checkIfiSNotValidNum, checkCorrectStartPhoneNum } from "../../utils/validators";
+
 const initialCarFormValues = {
 	make: '',
 	model: '',
@@ -28,6 +30,13 @@ export default function CarAdCreate() {
 	const createCarAd = useCreateCarAd();
 
 	const createHandler = async (values) => {
+		if(checkIfiSNotValidNum(values.mileage) || checkIfiSNotValidNum(values.price)) {
+			setError('Enter valid numer!!');
+			return;
+		} else if(!checkCorrectStartPhoneNum(values.sellphone)) {
+			setError('Enter a phone number starting with "+"!!');
+			return;
+		}
 		try {
 			const { _id: carId } = await createCarAd(values)
 

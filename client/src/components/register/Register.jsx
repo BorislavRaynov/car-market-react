@@ -3,8 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 import { useForm } from "../../hooks/useForm";
 import { useRegister } from "../../hooks/useAuth";
+import { twoPasswordsMatch, emailIsValid } from "../../utils/validators";
 
 import styles from './Register.module.css';
+
 
 const initialUserFormValues = {
     email: '',
@@ -18,12 +20,12 @@ export default function Register() {
     const navigate = useNavigate();
 
     const registerHandler = async ({ email, password, rePassword }) => {
-        if(password !== rePassword) {
+        if(!twoPasswordsMatch(password, rePassword)) {
             setError('Password missmatch!!!')
             return;
         }
 
-        if(!email.includes("@")) {
+        if(!emailIsValid(email)) {
             setError('Please enter valid email!!!')
             return;
         }
