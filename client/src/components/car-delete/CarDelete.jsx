@@ -4,11 +4,12 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react';
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 
-import carAPI from '../../api/car-api';
+import { useDeleteCarAd } from '../../hooks/useCar';
 
 export default function CarDelete() {
     const { carId } = useParams();
     const [open, setOpen] = useState(true);
+    const carDeleteAdHandler = useDeleteCarAd();
 
     const navigate = useNavigate();
 
@@ -21,7 +22,7 @@ export default function CarDelete() {
     const onDelete = async (e) => {
         e.preventDefault();
         
-        await carAPI.remove(carId);
+        await carDeleteAdHandler(carId);
 
         navigate(`/cars`);
     };
