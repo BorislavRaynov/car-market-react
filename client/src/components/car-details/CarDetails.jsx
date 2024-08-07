@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 
 import { useGetCar } from '../../hooks/useCar';
 import { useAuthContext } from '../../contexts/AuthContext';
+
 import Spinner from '../spinner/Spinner';
 
 export default function CarDetails() {

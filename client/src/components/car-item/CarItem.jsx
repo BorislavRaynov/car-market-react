@@ -9,16 +9,11 @@ export default function CarItem({
     const { email, isAuthenticated } = useAuthContext()
     const [isFavorite, setIsFavorite] = useCheckFavoriteStatus(email, car, isAuthenticated);
 
-    const favData = {
-        email: email,
-        car: car,
-    }
-
     const favouriteClickHandler = async (e) => {
         e.preventDefault();
 
         if (!isFavorite) {  
-            await useFavoriteCreateHandler(favData);
+            await useFavoriteCreateHandler({email: email, car: car});
             setIsFavorite(true);
         } else {
             alert('This car is already in your favorites!!');

@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import carAPI from "../../../api/car-api";
 
@@ -10,16 +10,16 @@ export default function FavoriteItem({
     const navigate = useNavigate();
 
     const detailsClickHandler = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         try {
-            await carAPI.getOne(car._id)
+            await carAPI.getOne(car._id);
 
-            navigate(`/cars/${car._id}/details`)
+            navigate(`/cars/${car._id}/details`);
         } catch (err) {
             alert("This car ad doesn't exist anymore. Please remove it from your favorites!!")
         }
-    }
+    };
 
     return (
         <li className="flex justify-between gap-x-6 py-5">

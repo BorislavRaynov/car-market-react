@@ -3,10 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { useForm } from "../../hooks/useForm";
 import { useCreateCarAd } from "../../hooks/useCar";
+import { checkIfiSNotValidNum, checkCorrectStartPhoneNum } from "../../utils/validators";
 
 import styles from './CarAdCreate.module.css';
-
-import { checkIfiSNotValidNum, checkCorrectStartPhoneNum } from "../../utils/validators";
 
 const initialCarFormValues = {
 	make: '',
@@ -33,10 +32,13 @@ export default function CarAdCreate() {
 		if(checkIfiSNotValidNum(values.mileage) || checkIfiSNotValidNum(values.price)) {
 			setError('Enter valid numer!!');
 			return;
-		} else if(!checkCorrectStartPhoneNum(values.sellphone)) {
+		}
+		
+		if(!checkCorrectStartPhoneNum(values.sellphone)) {
 			setError('Enter a phone number starting with "+"!!');
 			return;
 		}
+		
 		try {
 			const { _id: carId } = await createCarAd(values)
 

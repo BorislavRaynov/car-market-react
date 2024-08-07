@@ -4,7 +4,7 @@ import carAPI from "../api/car-api";
 
 export function useGetAllCars() {
     const [cars, setCars] = useState([]);
-	const [isLoading, setIsLoading] = useState(true) 
+	const [isLoading, setIsLoading] = useState(true) ;
 
 	useEffect(() => {
 		(async () =>{

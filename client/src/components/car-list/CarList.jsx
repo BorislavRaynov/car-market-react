@@ -4,7 +4,7 @@ import CarItem from "../car-item/CarItem";
 import Spinner from "../spinner/Spinner";
 
 export default function CarList() {
-	const [cars, setCars, isLoading, setIsloading] = useGetAllCars();
+	const [cars, setCars, isLoading] = useGetAllCars();
 
 	return (
 		<div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8">

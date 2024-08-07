@@ -13,7 +13,6 @@ export function AuthContextProvider(props) {
     const [authState, setAuthState] = useState({});
 
 	const changeAuthState = (state) => {
-		// TODO: impl persisted authstate
 		localStorage.setItem('accessToken', state.accessToken);
 		setAuthState(state);
 	};
